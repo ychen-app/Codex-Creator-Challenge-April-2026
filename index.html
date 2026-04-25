@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InternHire MVP | Live Internship Matching</title>
+    <meta
+      name="description"
+      content="InternHire MVP prototype focused on a live internship match event, premium internship cards, curated recruiter queues, instant interview matching, and market value sharing."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-bg" aria-hidden="true">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+      <div class="grid-glow"></div>
+    </div>
+
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="InternHire home">
+          <span class="brand-mark">IH</span>
+          <span>
+            <strong>InternHire</strong>
+            <em>Internships, matched in real time.</em>
+          </span>
+        </a>
+        <div class="topbar-meta">
+          <div class="meta-chip live">
+            <span>Live status</span>
+            <strong>Matching is live</strong>
+          </div>
+          <div class="meta-chip">
+            <span>Time left</span>
+            <strong id="countdown">47h 52m</strong>
+          </div>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">InternHire Home Screen</p>
+            <h1>Next Internship Match Event <span class="live-dot">●</span></h1>
+            <p class="hero-text">
+              InternHire is where internships are matched in minutes, students and
+              companies meet instantly, and interviews replace traditional
+              applications.
+            </p>
+
+            <div class="countdown-stage">
+              <span class="stage-label">Current event closes in</span>
+              <strong id="heroCountdown" class="countdown-value">47h 52m 00s</strong>
+              <p class="stage-note">
+                Students signal intent now. Employers respond while interest is still hot.
+              </p>
+            </div>
+
+            <div class="drop-primary-card">
+              <div>
+                <span>Internships available</span>
+                <strong id="heroOpenRoles">142</strong>
+              </div>
+              <div>
+                <span>Companies participating</span>
+                <strong>12</strong>
+              </div>
+              <button class="button button-primary" type="button" data-screen-target="drop">
+                Sign up
+              </button>
+            </div>
+          </div>
+
+          <aside class="hero-stage">
+            <div class="snapshot-card">
+              <p class="mini-label">Live activity</p>
+              <div class="snapshot-grid">
+                <div>
+                  <span>Students joined</span>
+                  <strong id="joinedCount">124</strong>
+                </div>
+                <div>
+                  <span>Signals sent</span>
+                  <strong id="signalCount">18</strong>
+                </div>
+                <div>
+                  <span>Matches made</span>
+                  <strong id="interviewCount">6</strong>
+                </div>
+                <div>
+                  <span>Interviews booked</span>
+                  <strong id="scheduledCount">4</strong>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="screen-nav" aria-label="Product screens">
+          <button class="screen-chip active" type="button" data-screen-target="drop">
+            Home
+          </button>
+          <button class="screen-chip" type="button" data-screen-target="employer">
+            Interest Queue [Employer Only View]
+          </button>
+          <button class="screen-chip" type="button" data-screen-target="match">
+            Matched Interview
+          </button>
+          <button class="screen-chip" type="button" data-screen-target="market">
+            My Market Value
+          </button>
+        </section>
+
+        <section class="workspace">
+          <aside class="workspace-sidebar">
+            <article class="sidebar-card">
+              <p class="mini-label">Candidate profile</p>
+              <div id="profileSummary" class="profile-summary"></div>
+            </article>
+          </aside>
+
+          <div class="app-shell">
+            <div class="app-topbar">
+              <div>
+                <span class="mini-label">InternHire dashboard</span>
+                <strong id="screenLabel">Home</strong>
+              </div>
+              <div class="app-pills">
+                <span class="app-pill live">Live event</span>
+                <span class="app-pill">Curated marketplace</span>
+              </div>
+            </div>
+
+            <section class="app-screen active" data-screen="drop">
+              <div class="screen-header">
+                <div>
+                  <p class="eyebrow">Home</p>
+                  <h3>The event comes before the opportunities</h3>
+                </div>
+                <span class="progress-badge">Trust markers <strong>Salary required</strong></span>
+              </div>
+
+              <div class="drop-home-grid">
+                <article class="panel-card featured-drop">
+                  <span class="mini-label">Next Internship Match Event</span>
+                  <strong class="featured-countdown" id="dropCountdown">47h 52m 00s</strong>
+                  <p>
+                    One shared hiring window. Clear urgency. Clear expectations. Fast outcomes.
+                  </p>
+                  <div class="featured-metrics">
+                    <div>
+                      <span>Open roles</span>
+                      <strong id="dropRolesCount">142 internships available</strong>
+                    </div>
+                    <div>
+                      <span>Participating companies</span>
+                      <strong>12 companies participating</strong>
+                    </div>
+                  </div>
+                  <button class="button button-primary" type="button" data-screen-target="drop">
+                    Sign up
+                  </button>
+                </article>
+
+                <article class="panel-card simple-panel">
+                  <span class="mini-label">Value</span>
+                  <div class="simple-list">
+                    <div>
+                      <strong>No resume upload wall</strong>
+                      <p>Students get into the market fast instead of preparing a packet first.</p>
+                    </div>
+                    <div>
+                      <strong>Ease of Access with One Location</strong>
+                      <p>
+                        UC Davis Activities and Recreation Center Address:
+                        760 Orchard Road
+                        Davis, CA 95616
+                      </p>
+                    </div>
+                    <div>
+                      <strong>Two-sided opt-in</strong>
+                      <p>Both sides act with intent before scheduling unlocks.</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <div class="screen-header embedded-section">
+                <div>
+                  <p class="eyebrow">Core interaction</p>
+                  <h3>Premium internship cards, not listings</h3>
+                </div>
+                <span class="progress-badge">Signals sent <strong id="signalsSent">0</strong></span>
+              </div>
+
+              <div class="student-grid">
+                <article class="stack-panel">
+                  <div class="panel-head">
+                    <span class="mini-label">Internship card</span>
+                    <strong>High trust, high clarity, low friction</strong>
+                  </div>
+                  <div id="roleCard" class="role-card premium-card"></div>
+                  <div class="decision-row">
+                    <button id="passRole" class="button button-ghost" type="button">Pass</button>
+                    <button id="saveRole" class="button button-secondary" type="button">Save</button>
+                    <button id="interestRole" class="button button-primary" type="button">Interested</button>
+                  </div>
+                </article>
+
+                <article class="stack-panel">
+                  <div class="panel-head">
+                    <span class="mini-label">Your activity</span>
+                    <strong>Signals and saved roles from this event</strong>
+                  </div>
+                  <div id="signalHistory" class="list-stack"></div>
+                </article>
+              </div>
+            </section>
+
+            <section class="app-screen" data-screen="employer">
+              <div class="screen-header">
+                <div>
+                  <p class="eyebrow">Recruiter side</p>
+                  <h3>Interest queue, not applicant overload</h3>
+                </div>
+                <span class="progress-badge">Slots remaining <strong id="slotsRemaining">6</strong></span>
+              </div>
+
+              <div class="employer-grid">
+                <article class="stack-panel">
+                  <div class="panel-head">
+                    <span class="mini-label">Inbound intent</span>
+                    <strong>Curated candidates interested in your role</strong>
+                  </div>
+                  <div id="candidateQueue" class="queue-stack"></div>
+                </article>
+
+                <article class="stack-panel">
+                  <div class="panel-head">
+                    <span class="mini-label">Interview pipeline</span>
+                    <strong>Accepted candidates move here immediately</strong>
+                  </div>
+                  <div id="interviewList" class="list-stack"></div>
+                </article>
+              </div>
+            </section>
+
+            <section class="app-screen" data-screen="match">
+              <div class="screen-header">
+                <div>
+                  <p class="eyebrow">Success state</p>
+                  <h3>Matching should feel like a moment</h3>
+                </div>
+                <span class="progress-badge">Interview state <strong>Unlocked</strong></span>
+              </div>
+
+              <div class="match-grid">
+                <article class="match-card">
+                  <p class="mini-label">Matched interview screen</p>
+                  <h2 id="matchHeadline">You matched with Parcel Labs</h2>
+                  <p>
+                    Mutual interest is confirmed. The next thing step is scheduling.
+                  </p>
+                  <div class="match-actions">
+                    <button class="button button-primary" type="button">Schedule interview</button>
+                    <button class="button button-secondary" type="button">Send message</button>
+                  </div>
+                </article>
+
+                <article class="calendar-card">
+                  <p class="mini-label">15-minute interview blocks</p>
+                  <div id="calendarSlots" class="calendar-slots"></div>
+                </article>
+              </div>
+            </section>
+
+            <section class="app-screen" data-screen="market">
+              <div class="screen-header">
+                <div>
+                  <p class="eyebrow">Growth loop</p>
+                  <h3>Your market value in this event</h3>
+                </div>
+                <span class="progress-badge">Shareable <strong>Campus-ready</strong></span>
+              </div>
+
+              <div class="market-grid">
+                <article class="market-card">
+                  <p class="mini-label">My Market Value</p>
+                  <h2 id="marketHeadline">You had 6 companies interested in you this event</h2>
+                  <div class="market-stats">
+                    <div>
+                      <span>Top salary band</span>
+                      <strong>$26-35/hr</strong>
+                    </div>
+                    <div>
+                      <span>Most requested skills</span>
+                      <strong>Figma, React, Analytics</strong>
+                    </div>
+                  </div>
+                  <button class="button button-primary" type="button">Share my InternHire results</button>
+                </article>
+
+                <article class="market-card secondary">
+                  <p class="mini-label">Demand signals</p>
+                  <div class="demand-list">
+                    <div>
+                      <strong>Product design demand is up</strong>
+                      <p>4 companies sought candidates with Figma + research overlap.</p>
+                    </div>
+                    <div>
+                      <strong>Analytics remains cross-functional</strong>
+                      <p>Data + growth roles both prioritized SQL and dashboard skills.</p>
+                    </div>
+                    <div>
+                      <strong>Comp expectations were in-range</strong>
+                      <p>Your selected pay band matched the most active employer cohort.</p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
